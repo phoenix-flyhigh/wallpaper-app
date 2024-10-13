@@ -37,24 +37,14 @@ Following features have been added
 - Image download to local device file system
 
 ### Screenshots
-Library section
-![Library section](image.png)
-Liked section
-![Liked section](image-8.png)
-Suggested section
-![Suggested section](image-1.png)
-Explore page
-![Explore page](image-7.png)
-BottomSheet on clicking a wallpaper
-![BottomSheet on clicking a wallpaper](image-6.png)
-Downloaded wallpaper on clicking Get wallpaper
-![Downloaded wallpaper](image-5.png)
-Account page
-![Account page](image-3.png)
-Toggle theme
-![Toggle theme](image-4.png)
-About account
-![About account](image-2.png)
+
+
+| Title                                   | Screenshot                                  | Screenshot                                  | Screenshot                                  |
+|-----------------------------------------|---------------------------------------------|---------------------------------------------|---------------------------------------------|
+| Library, Liked, Suggested sections                         | <img src="image.png" width="100" />       | <img src="image-8.png" width="100" />          | <img src="image-1.png" width="100" />    
+|  Explore page, BottomSheet on clicking a wallpaper, Downloaded wallpaper | <img src="image-7.png" width="100" />     | <img src="image-6.png" width="100" />      | <img src="image-5.png" width="100" />  
+| Account page, Toggle theme, About account pop up  | <img src="image-3.png" width="100" />     |   <img src="image-4.png" width="100" />     |  <img src="image-2.png" width="100" />  
+
 
 ### References
 
