@@ -11,7 +11,7 @@ export function PrimaryButton({
   }: {
     iconName: keyof typeof Ionicons.glyphMap;
     buttonTitle: string;
-    onPress: () => void;
+    onPress:() => void;
   }) {
     const theme = useColorScheme() ?? "light";
   

@@ -1,11 +1,14 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
-import { StyleSheet, Appearance } from "react-native";
+import { StyleSheet, Appearance, useColorScheme } from "react-native";
 import { SecondaryButton } from "@/components/SecondaryButton";
 import { PrimaryButton } from "@/components/PrimaryButton";
 
 export default function account() {
+  
+  const theme = useColorScheme() ?? "light";
+  
   return (
     <ThemedView style={{ flex: 1, paddingHorizontal: 16, paddingVertical: 24 }}>
       <ThemedText style={{ ...styles.h1 }}>Wallpaper app</ThemedText>
@@ -23,10 +26,12 @@ export default function account() {
       >
         <SecondaryButton
           buttonTitle="Light"
+          isSelected={theme.toLowerCase() === "light"}
           onPress={() => Appearance.setColorScheme("light")}
         />
         <SecondaryButton
           buttonTitle="Dark"
+          isSelected={theme.toLowerCase() === "dark"}
           onPress={() => Appearance.setColorScheme("dark")}
         />
       </ThemedView>

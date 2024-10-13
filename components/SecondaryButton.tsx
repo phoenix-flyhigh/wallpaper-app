@@ -1,21 +1,30 @@
-import { useColorScheme, Pressable } from "react-native";
+import { useColorScheme, Pressable, StyleSheet } from "react-native";
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { Colors } from "@/constants/Colors";
 
 export function SecondaryButton({
-    buttonTitle,
-    onPress,
-  }: {
-    buttonTitle: string;
-    onPress: () => void;
-  }) {
-    const theme = useColorScheme() ?? "light";
-  
-    return (
-      <Pressable style={{ flex: 1, padding: 8 }} onPress={onPress}>
-        <ThemedView
-          style={{
+  buttonTitle,
+  onPress,
+  isSelected = false,
+}: {
+  buttonTitle: string;
+  onPress: () => void;
+  isSelected?: boolean;
+}) {
+  const theme = useColorScheme() ?? "light";
+  const styles = StyleSheet.create({
+    selectedButton: {
+      backgroundColor:
+        theme === "light" ? Colors.dark.background : Colors.light.background,
+      color: theme === "light" ? Colors.dark.text: Colors.light.text,
+    },
+  });
+  return (
+    <Pressable style={{ flex: 1, padding: 8 }} onPress={onPress}>
+      <ThemedView
+        style={[
+          {
             flexDirection: "row",
             display: "flex",
             padding: 16,
@@ -30,10 +39,12 @@ export function SecondaryButton({
               theme === "light"
                 ? Colors.dark.background
                 : Colors.light.background,
-          }}
-        >
-          <ThemedText>{buttonTitle}</ThemedText>
-        </ThemedView>
-      </Pressable>
-    );
-  }
+          },
+          isSelected ? styles.selectedButton : undefined,
+        ]}
+      >
+        <ThemedText style={[isSelected ? styles.selectedButton : undefined]}>{buttonTitle}</ThemedText>
+      </ThemedView>
+    </Pressable>
+  );
+}

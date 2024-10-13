@@ -37,14 +37,6 @@ export default function useWallpapers() {
       suggested: true
     },
     {
-      id: "4",
-      url: "https://ideogram.ai/assets/progressive-image/balanced/response/cEYfd6teS3Gl42-eP5FNGw",
-      name: "bird",
-      liked: false,
-      library: false,
-      suggested: true
-    },
-    {
       id: "5",
       url: "https://ideogram.ai/assets/progressive-image/balanced/response/Xg9ztsDoT6ekEQtKnvg16w",
       name: "cloud",
@@ -85,6 +77,33 @@ export default function useWallpapers() {
       liked: false,
       library: false,
       suggested: true
+    }
+    ,
+    {
+      id: "10",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/ggfGSVAwTNOTrj0XA3n3hg",
+      name: "gratitude",
+      liked: true,
+      library: false,
+      suggested: true
+    }
+    ,
+    {
+      id: "11",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/zLoSRjH0QsOCtZcDyY4v0A",
+      name: "sunset",
+      liked: false,
+      library: true,
+      suggested: true
+    }
+    ,
+    {
+      id: "12",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/ykQ_tJjhTCi5t2AatlDFzw",
+      name: "rainbow",
+      liked: true,
+      library: true,
+      suggested: false
     }
   ];
 

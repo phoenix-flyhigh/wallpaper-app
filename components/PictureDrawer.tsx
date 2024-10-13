@@ -4,8 +4,10 @@ import { useRef, useCallback } from "react";
 import { PictureCard } from "./PictureCard";
 import { PrimaryButton } from "./PrimaryButton";
 import { ThemedView } from "./ThemedView";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { ThemedText } from "./ThemedText";
+import * as FileSystem from "expo-file-system";
+import * as MediaLibrary from "expo-media-library";
 
 export function PictureDrawer({
   onClose,
@@ -20,11 +22,30 @@ export function PictureDrawer({
   const handleSheetChanges = useCallback((index: number) => {
     console.log("handleSheetChanges", index);
   }, []);
+
+  const downloadWallpaper = async () => {
+    console.log("got wallpaper to download");
+    
+    const currentTime = new Date().getTime();
+    const fileUri = FileSystem.documentDirectory + `${currentTime}.jpg`;
+    try {
+      await FileSystem.downloadAsync(wallpaper.url, fileUri);
+      const writeMediaAccess = await MediaLibrary.requestPermissionsAsync(true);
+      if (writeMediaAccess.granted) {
+        await MediaLibrary.createAssetAsync(fileUri);
+        alert("Wallpaper downloaded");
+        console.log("Wallpaper downloaded");
+      }
+    } catch (e) {
+      alert("Failed to download wallpaper");
+      console.error(e);
+    }
+  };
   return (
     <BottomSheet
       ref={bottomSheetRef}
       onChange={handleSheetChanges}
-      snapPoints={["90%"]}
+      snapPoints={[0.9 * Dimensions.get("window").height]}
       onClose={onClose}
       handleIndicatorStyle={{ display: "none" }}
       handleStyle={{ display: "none" }}
@@ -42,7 +63,7 @@ export function PictureDrawer({
           <PrimaryButton
             iconName="download"
             buttonTitle="Get WallPapeṛ"
-            onPress={() => {}}
+            onPress={downloadWallpaper}
           />
         </ThemedView>
       </BottomSheetView>
